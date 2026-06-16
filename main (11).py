@@ -705,11 +705,19 @@ def main(page: ft.Page):
                                 border=border_all(1, primary),
                                 border_radius=12,
                                 clip_behavior=ft.ClipBehavior.HARD_EDGE,
-                                content=ft.Html(
-                                    f"""<video style="width: 100%; height: 100%; border-radius: 12px;" controls>
-                                        <source src="{desktop_video_path}" type="video/mp4">
-                                        Your browser does not support HTML5 video.
-                                    </video>"""
+                                content=ft.Column(
+                                    spacing=12,
+                                    controls=[
+                                        ft.Text(
+                                            "Desktop video available - click to play",
+                                            size=15, color=primary,
+                                        ),
+                                        ft.ElevatedButton(
+                                            "▶ Play Video",
+                                            bgcolor=primary,
+                                            color="#000000",
+                                        ),
+                                    ],
                                 ),
                             ),
                         ],
