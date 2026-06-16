@@ -713,7 +713,7 @@ def main(page: ft.Page):
                                             height=500,
                                             bgcolor="#000000",
                                             border_radius=12,
-                                            alignment=ft.alignment.center,
+                                            alignment=ft.Alignment(0, 0),
                                             content=ft.Column(
                                                 alignment=ft.MainAxisAlignment.CENTER,
                                                 horizontal_alignment=ft.CrossAxisAlignment.CENTER,
