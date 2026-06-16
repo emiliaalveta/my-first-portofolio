@@ -2,11 +2,6 @@ import flet as ft
 import base64
 import os
 
-try:
-    import flet_video as ftv
-except ImportError:
-    ftv = None
-
 
 def get_icon(name: str):
     icons = getattr(ft, "Icons", None) or getattr(ft, "icons")
@@ -46,7 +41,7 @@ def main(page: ft.Page):
     text      = "#ffffff"
     subtext   = "#f0b8d0"
 
-    desktop_video_path = os.path.join(os.path.expanduser("~"), "Desktop", "20260615_141535_022049.mp4")
+    desktop_video_path = "20260615_141535_022049.mp4"
 
     # ── Load profile photo as base64 once at startup ──
     profile_b64 = EMBEDDED_ASSETS.get("profile", "")
@@ -710,31 +705,10 @@ def main(page: ft.Page):
                                 border=border_all(1, primary),
                                 border_radius=12,
                                 clip_behavior=ft.ClipBehavior.HARD_EDGE,
-                                content=(
-                                    ftv.Video(
-                                        expand=True,
-                                        autoplay=False,
-                                        playlist=[ftv.VideoMedia(desktop_video_path)],
-                                        controls=ftv.MaterialDesktopVideoControls(
-                                            visible_on_mount=True,
-                                        ),
-                                    )
-                                    if ftv is not None and os.path.exists(desktop_video_path)
-                                    else ft.Column(
-                                        spacing=12,
-                                        controls=[
-                                            ft.Text(
-                                                "Desktop video not available or flet-video is not installed.",
-                                                size=15, color=primary,
-                                            ),
-                                            ft.ElevatedButton(
-                                                "Open video file",
-                                                bgcolor=primary,
-                                                color="#000000",
-                                                on_click=lambda _: __import__('webbrowser').open(desktop_video_path),
-                                            ),
-                                        ],
-                                    )
+                                content=ft.Video(
+                                    src=desktop_video_path,
+                                    expand=True,
+                                    autoplay=False,
                                 ),
                             ),
                         ],
