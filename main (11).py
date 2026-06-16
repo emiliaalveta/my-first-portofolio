@@ -706,16 +706,28 @@ def main(page: ft.Page):
                                 border_radius=12,
                                 clip_behavior=ft.ClipBehavior.HARD_EDGE,
                                 content=ft.Column(
-                                    spacing=12,
+                                    spacing=14,
                                     controls=[
-                                        ft.Text(
-                                            "Desktop video available - click to play",
-                                            size=15, color=primary,
-                                        ),
-                                        ft.ElevatedButton(
-                                            "▶ Play Video",
-                                            bgcolor=primary,
-                                            color="#000000",
+                                        ft.Container(
+                                            width=900,
+                                            height=500,
+                                            bgcolor="#000000",
+                                            border_radius=12,
+                                            alignment=ft.alignment.center,
+                                            content=ft.Column(
+                                                alignment=ft.MainAxisAlignment.CENTER,
+                                                horizontal_alignment=ft.CrossAxisAlignment.CENTER,
+                                                controls=[
+                                                    ft.Icon(get_icon("PLAY_CIRCLE"), size=80, color=primary),
+                                                    ft.SizedBox(height=20),
+                                                    ft.ElevatedButton(
+                                                        "▶ Play Video",
+                                                        bgcolor=primary,
+                                                        color="#000000",
+                                                        on_click=lambda _: __import__('webbrowser').open(f"/{desktop_video_path}"),
+                                                    ),
+                                                ],
+                                            ),
                                         ),
                                     ],
                                 ),
