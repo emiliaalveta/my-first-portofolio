@@ -717,9 +717,9 @@ def main(page: ft.Page):
                                             content=ft.Column(
                                                 alignment=ft.MainAxisAlignment.CENTER,
                                                 horizontal_alignment=ft.CrossAxisAlignment.CENTER,
+                                                spacing=20,
                                                 controls=[
                                                     ft.Icon(get_icon("PLAY_CIRCLE"), size=80, color=primary),
-                                                    ft.SizedBox(height=20),
                                                     ft.ElevatedButton(
                                                         "▶ Play Video",
                                                         bgcolor=primary,
