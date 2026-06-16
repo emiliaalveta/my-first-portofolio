@@ -708,26 +708,23 @@ def main(page: ft.Page):
                                 content=ft.Column(
                                     spacing=14,
                                     controls=[
-                                        ft.Stack(
+                                        ft.Container(
                                             width=900,
                                             height=500,
-                                            controls=[
-                                                ft.Container(
-                                                    width=900,
-                                                    height=500,
-                                                    bgcolor="#1a1a1a",
-                                                    border_radius=12,
-                                                ),
-                                                ft.GestureDetector(
-                                                    on_tap=lambda _: __import__('webbrowser').open(f"/{desktop_video_path}"),
-                                                    content=ft.Container(
-                                                        width=900,
-                                                        height=500,
-                                                        alignment=ft.Alignment(0, 0),
-                                                        content=ft.Icon(get_icon("PLAY_CIRCLE"), size=100, color=primary),
+                                            bgcolor="#000000",
+                                            border_radius=12,
+                                            border=border_all(1, primary),
+                                            content=ft.Column(
+                                                alignment=ft.MainAxisAlignment.CENTER,
+                                                horizontal_alignment=ft.CrossAxisAlignment.CENTER,
+                                                controls=[
+                                                    ft.Icon(get_icon("PLAY_CIRCLE"), size=100, color=primary),
+                                                    ft.TextButton(
+                                                        "Click to Play Video",
+                                                        on_click=lambda _: __import__('webbrowser').open(f"/{desktop_video_path}"),
                                                     ),
-                                                ),
-                                            ],
+                                                ],
+                                            ),
                                         ),
                                     ],
                                 ),
