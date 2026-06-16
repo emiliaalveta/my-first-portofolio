@@ -959,27 +959,6 @@ def main(page: ft.Page):
 
 if __name__ == "__main__":
     ft.run(main, web_renderer=ft.WebRenderer.CANVAS_KIT)
-hub.com/emiliaalveta"),
-                    content=ft.Row(
-                        spacing=20, vertical_alignment=ft.CrossAxisAlignment.CENTER,
-                        controls=[
-                            ft.Container(
-                                width=52, height=52, border_radius=26,
-                                bgcolor="#333333",
-                                content=ft.Icon(get_icon("CODE"), size=26, color="#ffffff"),
-                                alignment=ft.Alignment(0, 0),
-                            ),
-                            ft.Column(spacing=2, controls=[
-                                ft.Text("GitHub", size=12, color=subtext, weight=ft.FontWeight.BOLD),
-                                ft.Text("github.com/emiliaalveta", size=18, color=text, weight=ft.FontWeight.BOLD),
-                                ft.Text("Tap to view code", size=11, color=primary, italic=True),
-                            ]),
-                        ],
-                    ),
-                ),
-            ],
-        ),
-    )
 
     footer = ft.Container(
         padding=30,
