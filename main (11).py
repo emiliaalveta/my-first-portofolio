@@ -942,7 +942,7 @@ def main(page: ft.Page):
         page.update()
         # Auto-play video when blog section loads
         if section == "blog":
-            page.run_task(lambda: __import__('webbrowser').open(f"/{desktop_video_path}"))
+            __import__('webbrowser').open(f"/{desktop_video_path}")
 
     page.on_route_change = render_route
     render_route()
