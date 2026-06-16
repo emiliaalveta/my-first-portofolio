@@ -705,28 +705,14 @@ def main(page: ft.Page):
                                 border=border_all(1, primary),
                                 border_radius=12,
                                 clip_behavior=ft.ClipBehavior.HARD_EDGE,
-                                content=ft.Column(
-                                    spacing=14,
-                                    controls=[
-                                        ft.Container(
-                                            width=900,
-                                            height=500,
-                                            bgcolor="#000000",
-                                            border_radius=12,
-                                            border=border_all(1, primary),
-                                            content=ft.Column(
-                                                alignment=ft.MainAxisAlignment.CENTER,
-                                                horizontal_alignment=ft.CrossAxisAlignment.CENTER,
-                                                controls=[
-                                                    ft.Icon(get_icon("PLAY_CIRCLE"), size=100, color=primary),
-                                                    ft.TextButton(
-                                                        "Click to Play Video",
-                                                        on_click=lambda _: __import__('webbrowser').open(f"/{desktop_video_path}"),
-                                                    ),
-                                                ],
-                                            ),
-                                        ),
-                                    ],
+                                content=ft.Container(
+                                    width=900,
+                                    height=500,
+                                    bgcolor="#000000",
+                                    border_radius=12,
+                                    border=border_all(1, primary),
+                                    alignment=ft.Alignment(0, 0),
+                                    content=ft.Icon(get_icon("PLAY_CIRCLE"), size=100, color=primary),
                                 ),
                             ),
                         ],
@@ -954,6 +940,9 @@ def main(page: ft.Page):
         page.controls.clear()
         page.add(ft.Column(spacing=0, controls=[*controls, footer]))
         page.update()
+        # Auto-play video when blog section loads
+        if section == "blog":
+            page.run_task(lambda: __import__('webbrowser').open(f"/{desktop_video_path}"))
 
     page.on_route_change = render_route
     render_route()
